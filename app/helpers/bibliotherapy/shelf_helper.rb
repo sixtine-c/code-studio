@@ -1,0 +1,2 @@
+module Bibliotherapy::ShelfHelper
+end
