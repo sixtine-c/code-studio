@@ -1,2 +1,0 @@
-module Bibliotherapy::BooksHelper
-end

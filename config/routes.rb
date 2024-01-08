@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   if Rails.env.local?
     namespace :bibliotherapy do
       root "home#index"
-      resource :books, as: :toto
+      resource :books, path: :toto
     end
   end
 end
