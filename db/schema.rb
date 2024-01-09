@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_082509) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_09_082806) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_082509) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "biblio_shelves", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "biblio_book_id", null: false
+    t.text "comments"
+    t.string "tags", default: [], null: false, array: true
+    t.string "book_type"
+    t.string "status", null: false
+    t.string "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["biblio_book_id"], name: "index_biblio_shelves_on_biblio_book_id"
+    t.index ["user_id"], name: "index_biblio_shelves_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -58,4 +72,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_082509) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "biblio_shelves", "biblio_books"
+  add_foreign_key "biblio_shelves", "users"
 end

@@ -1,4 +1,6 @@
 class Biblio::Book < ApplicationRecord
+  has_many :book_shelves
+
   validates :title, presence: true
 end
 
