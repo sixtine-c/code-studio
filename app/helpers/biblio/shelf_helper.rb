@@ -1,0 +1,2 @@
+module Biblio::ShelfHelper
+end

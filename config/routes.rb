@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   if Rails.env.local?
-    namespace :bibliotherapy do
+    namespace :biblio do
       root "home#index"
       resource :shelf
     end

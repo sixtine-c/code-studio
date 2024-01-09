@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Bibliotherapy::Shelves", type: :request do
+RSpec.describe "Biblio::Shelves", type: :request do
   describe "GET /index" do
     pending "add some examples (or delete) #{__FILE__}"
   end
