@@ -1,4 +1,5 @@
 class Biblio::Category < ApplicationRecord
+  has_many :biblio_categories
 end
 
 # == Schema Information
