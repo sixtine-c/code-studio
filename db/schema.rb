@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_082806) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_09_164723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,9 +30,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_082806) do
     t.datetime "published_date"
     t.integer "average_rating"
     t.integer "ratings_count"
-    t.integer "id_authors", default: [], null: false, array: true
-    t.integer "id_categories", default: [], null: false, array: true
-    t.integer "id_publishers", default: [], null: false, array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +44,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_082806) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "biblio_readings", force: :cascade do |t|
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.bigint "biblio_shelf_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["biblio_shelf_id"], name: "index_biblio_readings_on_biblio_shelf_id"
   end
 
   create_table "biblio_shelves", force: :cascade do |t|
@@ -72,6 +78,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_082806) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "biblio_readings", "biblio_shelves"
   add_foreign_key "biblio_shelves", "biblio_books"
   add_foreign_key "biblio_shelves", "users"
 end

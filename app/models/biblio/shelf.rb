@@ -1,6 +1,8 @@
 class Biblio::Shelf < ApplicationRecord
   belongs_to :user
   belongs_to :biblio_book, class_name: 'Biblio::Book', dependent: :destroy
+  has_many :biblio_readings, class_name: 'Biblio::Reading'
+
 end
 
 # == Schema Information

@@ -11,9 +11,6 @@ end
 #  id             :bigint           not null, primary key
 #  average_rating :integer
 #  description    :text
-#  id_authors     :integer          default([]), not null, is an Array
-#  id_categories  :integer          default([]), not null, is an Array
-#  id_publishers  :integer          default([]), not null, is an Array
 #  pages_count    :integer
 #  preview_link   :string
 #  published_date :datetime
