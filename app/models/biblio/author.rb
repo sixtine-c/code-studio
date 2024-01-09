@@ -1,4 +1,5 @@
 class Biblio::Author < ApplicationRecord
+  has_many :biblio_author_books
 end
 
 # == Schema Information
