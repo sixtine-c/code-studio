@@ -1,5 +1,5 @@
 class Biblio::Book < ApplicationRecord
-  has_many :biblio_shelves
+  has_many :biblio_shelves, class_name: 'Biblio::Shelf'
   has_many :biblio_category_books
   has_many :biblio_author_books
 

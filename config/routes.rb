@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   if Rails.env.local?
     namespace :biblio do
       root "home#index"
-      resource :shelf
+      resource :shelf do
+        get :index, on: :collection
+      end
     end
   end
 end

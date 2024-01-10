@@ -1,0 +1,10 @@
+<div class="books">
+<% @books.each do |book| %>
+  <% global = book.biblio_book %>
+  <img src= <%=  global.thumbnail%>>
+  <div class="book-global-infos">
+    <h2><%= global.title%></h2>
+    <p><%= global.description%></p>
+  </div>
+<% end %>
+</div>
