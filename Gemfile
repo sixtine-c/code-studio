@@ -71,3 +71,5 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
 end
+
+gem "tailwindcss-rails", "~> 2.4"
