@@ -11,17 +11,25 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-slate-50 dark:bg-black dark:text-white flex flex-col min-h-screen">
     <div><%= notice %></div>
     <div><%= alert %> </div>
 
-    <% if user_signed_in? %>
-      <%= link_to 'Edit Password', edit_password_path %>
-      <%= button_to 'log_out', session_path, method: :delete %>
-    <% else  %>
-      <%= link_to 'Sign Up', new_registration_path %>
-      <%= link_to 'Sign In', new_session_path %>
-    <% end  %>
-    <%= yield %>
+    <%# <header class='pt-4'>
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div> %>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit Password', edit_password_path %>
+            <%= button_to 'log_out', session_path, method: :delete %>
+          <% else  %>
+            <%= link_to 'Sign Up', new_registration_path %>
+            <%= link_to 'Sign In', new_session_path %>
+          <% end  %>
+          <%= yield %>
+        <%# </div>
+      </div>
+    </header> %>
+
+
   </body>
 </html>
