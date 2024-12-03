@@ -4,6 +4,26 @@
 #
 # Example:
 #
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+50.times do
+  book = Biblio::Book.create(
+  title: "toto",
+  google_api_id: nil,
+  description: "toto",
+  pages_count: 345,
+  thumbnail: "https://books.google.com/books/content?id=kRqBa2SY0mwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  preview_link: nil,
+  published_date: Date.parse('30/10/2002'),
+  average_rating: 4,
+  ratings_count: 67,
+  )
+
+  Biblio::Shelf.create(
+    user_id: 1,
+    biblio_book_id: book.id,
+    comments: 'à lire absolument',
+    tags: [],
+    book_type: nil,
+    status: "to read",
+    language: 'french'
+  )
+end
